@@ -1,0 +1,649 @@
+:root {
+    --letra: #FFFFFF; /* Blanco brillante para contraste */
+    --fuente: Verdana, Geneva, Tahoma, sans-serif;
+    --color-titulo: #462be2; /* Púrpura brillante para el título */
+    --color-subtitulo: #FFB6C1; /* Rosa suave para el subtítulo */
+    --color-parrafo: #f1e75a; /* Celeste claro para el párrafo */
+    --color-imagen: #FFD700; /* Amarillo dorado para el borde de la imagen */
+}
+/* Oculta la página principal y muestra solo la página de registro inicialmente */
+/* Oculta la página principal y muestra solo la página de registro inicialmente */
+.paginaregistro {
+  position: absolute; /* Asegúrate de que ocupe todo el espacio inicialmente */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white; /* Asegúrate de que cubra toda la vista */
+  z-index: 10; /* Coloca en un nivel superior para que sea visible */
+}
+
+.paginaprincipal {
+  position: absolute; /* Para que no ocupe espacio cuando está oculto */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+  z-index: 1; /* Asegúrate de que esté detrás de la página de registro */
+}
+
+/* Animación para mostrar la página principal */
+.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+body{
+    background-color:#00122A;
+}
+@keyframes FadeIn {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+    
+}
+@keyframes FadeOut{
+  from{
+    opacity: 1;
+  }
+  to{
+    opacity: 0;
+  }
+}
+@keyframes fadein {
+    0%{
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+.paginaregistro {
+    animation: FadeIn 3s ease-in-out;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    background-image: url('img/fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: var(--fuente);
+    color: var(--letra);
+    align-items: center; /* Centra el contenido verticalmente */
+    justify-content: flex-start; /* Alinea el contenido a la izquierda */
+}
+
+/*Comandos para la frase Bienvenidos a OndaXplorer y parrafo*/
+.texto {
+    width: 50%;
+    display: flex;
+    flex-direction: column; /* Coloca los elementos en una columna */
+    align-items: flex-start; /* Alinea los elementos a la izquierda */
+    padding: 20px; /* Espaciado interno */
+}
+.Bienvenidos:hover, .OndaXplorer:hover, .txt:hover, .card-container:hover{
+    transform: scale(1.1); /* Aumenta el tamaño cuando el mouse está sobre el elemento */
+    transition: transform 0.3s ease-in-out; /* Transición suave */
+}
+.Bienvenidos, .OndaXplorer, .txt {
+    transition: transform 0.3s ease-in-out; /* Establece la transición también en el estado normal */
+}
+.Bienvenidos {
+    font-size: 1.5rem; /* Ajusta el tamaño del subtítulo */
+    margin: 10px; /* Elimina el margen */
+    text-shadow: 0px 0px 10px #012b44, 0px 0px 20px #012133, 0px 0px 40px #001622, 0px 0px 80px #000508;
+}
+
+.OndaXplorer {
+    font-size: 4rem; /* Ajusta el tamaño del título */
+    text-shadow: 0px 0px 10px #012b44, 0px 0px 20px #87CEFA, 0px 0px 40px #87CEFA, 0px 0px 80px #87CEFA;
+    display: flex;
+    position: inherit;
+    align-items: center; /* Alinea verticalmente el texto con la imagen */
+    margin: 5px; /* Elimina el margen */
+}
+
+.OndaXplorer img {
+    width: 100px; /* Tamaño de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin: 10px; /* Espacio entre la imagen y el texto */
+    filter: drop-shadow(2px 2px  20px #87CEFA);
+}
+
+.txt {
+    text-shadow: 0px 0px 10px #012b44, 0px 0px 20px #012133, 0px 0px 40px #001622, 0px 0px 80px #000508;
+    font-size: 16px; /* Tamaño más pequeño del párrafo */
+    line-height: 1.5; /* Espacio entre líneas */
+    margin: 30px; /* Elimina el margen */
+    text-align: right;
+}
+
+
+/*Comandos para el login y sing up*/
+.card-container {
+    position: relative;
+    left: 80px;
+    width: 300px;
+    height: 400px;
+    perspective: 1000px; /* Para animaciones 3D */
+  }
+  
+  .card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    background: rgba(3, 4, 65, 0.2); /* Transparente con algo de blanco */
+    border-radius: 15px;
+    backdrop-filter: blur(10px); /* Efecto de vidrio borroso */
+    box-shadow: 0 0 15px rgba(96, 98, 241, 0.1);
+    color: #fff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 0.8s ease-in-out;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+  }
+  
+  input {
+    width: 250px;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    background: rgba(20, 0, 53, 0.3);
+    color: white;
+    border-radius: 5px;
+  }
+  
+  button {
+    padding: 10px;
+    background: #00ffff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    color: #000;
+    transition: 0.3s;
+  }
+  
+  button:hover {
+    background: #00aaff;
+  }
+  .card-container p {
+    font-size: 14px; /* Tamaño del texto "¿No tienes una cuenta?" */
+}
+  
+  /* Efecto de neón en el texto */
+  h2 {
+    font-size: 24px;
+    color: #fff;
+    text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff;
+  }
+  
+  /* Animaciones y transformaciones */
+  .card-login {
+    transform: rotateY(0deg);
+  }
+  
+  .card-register {
+    transform: rotateY(180deg);
+  }
+  
+  .card-container .active {
+    transform: rotateY(0deg);
+  }
+  
+  .card-container .card:not(.active) {
+    transform: rotateY(-180deg);
+  }
+  
+  /* Links de acceso a registro y viceversa */
+  p {
+    margin-top: 15px;
+  }
+  
+  p span {
+    color: #00ffff;
+    cursor: pointer;
+  }
+  
+  p span:hover {
+    text-decoration: underline;
+  }
+
+  /*Comandos para la pagina principal*/
+  /*Header y menu de navegacion*/
+  .paginaprincipal{
+    animation: fadein 1s ease-in-out
+
+  }
+  .logo-menu{
+    display: flex;/*usa flex para alinear los elementos*/
+    align-items: center;/*centra los items verticalmente*/
+    padding: 10px 20px;
+    background-color: #00122A;
+    border-bottom: 1px solid #012b44;
+    
+  }
+  .logo-menu img{
+    height: 50px; /* Ajusta la altura de la imagen según lo necesario */
+    width: auto; /* Mantiene la relación de aspecto */
+    margin-right: 10px; /* Espacio entre la imagen y el texto */
+  }
+  .logo-menu h1{
+    font-size: 24px; /* Tamaño del texto */
+    margin: 0; /* Elimina el margen por defecto */
+    color:var(--letra);
+  }
+  .menu{
+    margin-left: auto;/*empuja el menu hacia la derecha*/
+  }
+  .menu ul{
+    list-style:none;/*quita los puntos de la lista*/
+    padding: 0; /*espaciado*/
+    margin: 0;/*elimina el margen por defecto*/
+    display: flex;/*muestra los elementos en fila horizontal*/
+  }
+  .menu li {
+    margin: 0 2px; /* Espacio entre los elementos del menú */
+}
+
+.menu li a {
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    color: #73deff; /* Color del icono del enlace */
+    font-size: 18px; /* Tamaño del icono del enlace */
+}
+
+.menu li a:hover {
+    color: #ffffff; /* Color del texto al pasar el ratón por encima */
+}
+/* Estilo para el texto asociado */
+/* Contenedor principal del menú */
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 0px; /* Espacio entre los ítems del menú */
+}
+
+/* Estilo para los elementos de lista */
+.menu li {
+  list-style-type: none;
+  transition: transform 0.3s ease;
+}
+
+/* Estilo para los enlaces con íconos */
+.icon-item {
+  display: flex;
+  align-items: center;
+  width: 40px; /* Ancho inicial para mostrar solo el ícono */
+  height: 40px; /* Altura fija para mantener la forma circular */
+  border-radius: 20px;
+  background-color: rgba(0, 123, 255, 0); /* Fondo transparente */
+  color: #007BFF;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  padding: 0 10px; /* Añade un poco de padding para el ícono */
+}
+
+/* Estilo para los íconos */
+.icon-item i {
+  font-size: 24px;
+  transition: color 0.3s ease;
+  min-width: 24px; /* Asegura que el ícono mantenga su tamaño */
+}
+
+/* Estilo para el texto asociado */
+.icon-text {
+  opacity: 0;
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: opacity 0.3s ease, max-width 0.3s ease, margin-left 0.3s ease;
+}
+
+/* Efecto al pasar el ratón sobre el ítem */
+.icon-item:hover {
+  width: auto; /* Permite que el ancho se ajuste al contenido */
+  background-color: rgba(116, 183, 255, 0.459); /* Fondo más opaco al hacer hover */
+}
+
+.icon-item:hover .icon-text {
+  opacity: 1;
+  max-width: 120px; /* Ajusta este valor al ancho máximo de tu texto más largo */
+  margin-left: 10px; /* Espacio entre el ícono y el texto */
+}
+
+.icon-item:hover i {
+  color: #ffffff; /* Cambia el color del ícono al hacer hover */
+}
+
+/* Mueve solo los ítems necesarios para hacer espacio */
+.menu li:hover ~ li {
+  transform: translateX(10px); /* Ajusta este valor para que coincida con el ancho expandido + gap */
+}
+
+/*Comandos para la busqueda*/
+/* Ajustes generales del nav */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  background-color: #00122A;
+  padding: 10px 20px;
+}
+
+/* Estilos generales del contenedor del buscador */
+.buscador-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* Estilo para el campo de búsqueda */
+.buscador-container input[type="text"] {
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 0; /* Empieza con ancho 0 para ocultar la barra */
+  box-sizing: border-box;
+  transition: width 0.4s ease, opacity 0.4s ease; /* Transiciones suaves */
+  opacity: 0;
+  visibility: hidden;
+  border: 2px solid #0056b3; /* Borde del campo de búsqueda */
+}
+
+/* Estilo para el botón de búsqueda */
+.buscador-container .button {
+  width: 35px; /* Tamaño inicial del botón */
+  height: 35px; /* Tamaño inicial del botón */
+  border-radius: 50%; /* Hace el botón circular */
+  background-color: #73deff;
+  color: white;
+  font-size: 16px; /* Tamaño del icono */
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease, width 0.4s ease, border-radius 0.4s ease; /* Transiciones suaves */
+}
+
+/* Estilo para el icono dentro del botón */
+.buscador-container .button i {
+  font-size: 20px; /* Tamaño del icono */
+}
+
+/* Estilo para el texto del botón */
+.buscador-container .button .button-text {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  white-space: nowrap;
+  transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease; /* Transiciones suaves */
+  transform: translateX(10px); /* Mueve el texto a la derecha para empezar */
+}
+
+/* Mostrar input y texto cuando se pasa el mouse por encima */
+.buscador-container:hover input[type="text"] {
+  width: 300px; /* Ajusta el ancho según sea necesario */
+  height: 35px;
+  opacity: 1;
+  visibility: visible;
+}
+
+.buscador-container:hover .button {
+  width: 100px; /* Ajusta el tamaño del botón cuando se muestra el texto */
+  height: 35px; /* Mantiene la altura del botón */
+  border-radius: 5px; /* Bordes redondeados para el botón cuando se expande */
+  background-color: #0056b3; /* Cambia el color del botón al hacer hover */
+}
+
+.buscador-container:hover .button .button-text {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(35px); /* Mueve el texto a su posición original */
+}
+/*Texto alternativo del buscador*/
+.glass {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  width: 300px;
+  height: auto;
+}
+
+.glass-effect {
+  width: 100%;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 15px rgba(96, 98, 241, 0.1);
+  color: #fff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1, p {
+  margin: 0;
+  padding: 0;
+}
+
+.sociales {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.redes {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 15px;
+}
+
+.redes li {
+  list-style: none;
+}
+
+.redes li a {
+  text-decoration: none;
+  font-size: 32px; /* Tamaño de los íconos */
+  color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+/* Colores específicos por red social */
+
+.redes li a.facebook:hover {
+  color: #ffffff; /* Azul de Facebook */
+  filter: drop-shadow(0 0 5px #1877F2) 
+          drop-shadow(0 0 10px #1877F2) 
+          drop-shadow(0 0 15px #1877F2)
+          drop-shadow(0 0 20px #1877F2); /* Efecto de neón */
+}
+
+
+.redes li a.instagram:hover {
+  display: inline-block; /* Para permitir aplicar el fondo de gradiente */
+  background-image: linear-gradient(135deg, #f3ae76, #da669a, #9268aa, #8288ca); /* Gradiente diagonal */
+  background-clip: text; /* Aplica el gradiente solo al texto */
+  -webkit-background-clip: text; /* Soporte para Safari */
+  color: transparent; /* El texto debe ser transparente para mostrar el gradiente */
+  filter: drop-shadow(0 0 5px #f58529) 
+  drop-shadow(0 0 10px #dd2a7b) 
+  drop-shadow(0 0 15px #8134af)
+  drop-shadow(0 0 20px #515bd4); /* Efecto de neón */
+}
+
+.redes li a.github:hover {
+  color: #333; /* Gris oscuro de GitHub */
+  filter: drop-shadow(0 0 5px #707070) 
+          drop-shadow(0 0 10px #707070) 
+          drop-shadow(0 0 15px #707070)
+          drop-shadow(0 0 20px #707070); /* Efecto de neón */
+}
+
+.redes li a.twitter:hover {
+  color: #ffffff;
+  filter: drop-shadow(0 0 5px #1da1f2) 
+          drop-shadow(0 0 10px #1da1f2) 
+          drop-shadow(0 0 15px #1da1f2)
+          drop-shadow(0 0 20px #1da1f2); /* Efecto de neón */
+}
+/*Contenidos Pagina Inicial*/
+
+
+.main-card {
+  animation: FadeIn 2s ease-in-out;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  text-align: center;
+  justify-content: center;
+  position: fixed;
+  top: 250px;
+  right: 775px;
+  padding: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+  width: 60px; /* Tamaño mayor para hacer espacio para las tarjetas */
+  height: 60px; /* Tamaño mayor para hacer espacio para las tarjetas */
+  margin: auto;
+  z-index: 10; /* Asegura que esté encima de las tarjetas */
+}
+
+.main-card i {
+  font-size: 30px; /* Ajusta el tamaño del ícono */
+}
+
+.main-card:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.7);
+}
+
+.cards-wrapper {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  transition: opacity 0.5s ease;
+  z-index: 5; /* Asegura que las tarjetas estén detrás del ícono */
+}
+
+.cards-wrapper.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.cards-wrapper.hide {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.card-item {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 60px; /* Mismo tamaño que el ícono de inicio */
+  height: 60px; /* Mismo tamaño que el ícono de inicio */
+  opacity: 0;
+}
+
+.card-item i {
+  font-size: 30px; /* Mismo tamaño de ícono que en "Inicio" */
+}
+
+.card-item:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.7);
+}
+
+
+/* Aplicar la animación cuando se muestren las tarjetas */
+.cards-wrapper.show .card-item {
+  animation: FadeIn 0.5s forwards;
+}
+
+/* Ocultar y animar tarjetas al replegarlas */
+.cards-wrapper.hide .card-item {
+  animation: FadeOut 0.5s forwards;
+}
+/* Establecer las direcciones hacia donde se desplazan las tarjetas */
+#card-temas {
+  position: fixed;
+  right: 1075px;
+  top: 250px;
+}
+
+#card-ejercicios {
+  position: fixed;
+  right: 925px;
+  top: 250px;
+}
+
+#card-laboratorio {
+  position: fixed;
+  right: 625px;
+  top: 250px;
+}
+
+#card-mas-info {
+  position: fixed;
+  right: 475px;
+  top: 250px;
+}
+/* Estilos para ocultar el contenido por defecto */
+.content-card {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.7);
+  color: #fff;
+  text-align: center;
+  top: 450px; /* Ajusta según tu diseño */
+  right: 700px; /* Ajusta según tu diseño */
+  width: 300px;
+  padding: 20px;
+  
+  display: none; /* Se oculta inicialmente */
+}
+
+.content-card.show {
+  display: block; /* Mostrar el contenido al hacer clic */
+  background: rgba(255, 255, 255, 0.1);
+}

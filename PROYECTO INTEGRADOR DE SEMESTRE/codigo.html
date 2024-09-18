@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/logopagina.png" type="image">
+    <title>OndaXplorer</title>
+    <link rel="stylesheet" href="diseño.css">
+    <!--La siguiente linea me permite importar iconos para el menu-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!--Comandos de la pagina de registro-->
+    <div class="paginaregistro">
+        <div class="texto">
+            <h2 class="Bienvenidos">Bienvenidos a</h2>
+            <h1 class="OndaXplorer">
+                <img src="img/logopagina.png" alt="Logo">
+                OndaXplorer
+            </h1>
+            <p class="txt">Donde descubrirás cómo las leyes de la física dan forma al mundo que nos rodea. 
+                A través de simulaciones interactivas y contenido dinámico, exploraremos juntos el fascinante 
+                comportamiento de las ondas, sus aplicaciones y mucho más. ¡Prepárate para aprender de manera 
+                entretenida y visual!</p>
+        </div>
+        <!--Comandos para el login y sing up-->
+        <div class="card-container">
+            <!-- Tarjeta de acceso -->
+            <div class="card card-login active">
+            <h2>Acceder</h2>
+            <form>
+                <input type="email" placeholder="Correo Electrónico" required>
+                <input type="password" placeholder="Contraseña" required>
+                <button type="submit">Acceder</button>
+            </form>
+            <p>¿No tienes una cuenta? <span id="show-register">Regístrate</span></p>
+            </div>
+        
+            <!-- Tarjeta de registro -->
+            <div class="card card-register">
+            <h2>Registrarse</h2>
+            <form>
+                <input type="text" placeholder="Nombre" required>
+                <input type="email" placeholder="Correo Electrónico" required>
+                <input type="password" placeholder="Contraseña" required>
+                <button type="submit">Registrarse</button>
+            </form>
+            <p>¿Ya tienes una cuenta? <span id="show-login">Acceder</span></p>
+            </div>
+        </div>
+    </div>
+    
+    <!--Codigo del cuerpo de la pagina web-->
+    <div class="paginaprincipal">
+       <header class="logo-menu">
+            <img src="img/logopagina.png" alt="OndaXplorer" class="">
+            <h1>OndaXplorer</h1>
+            <nav class="menu">
+                <ul>
+                    <li>
+                        <a href="#temas" class="icon-item">
+                            <i class="fas fa-book"></i>
+                            <span class="icon-text">Temas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#ejercicios" class="icon-item">
+                            <i class="fas fa-pencil-alt"></i>
+                            <span class="icon-text">Ejercicios</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#laboratorio" class="icon-item">
+                            <i class="fas fa-flask"></i>
+                            <span class="icon-text">Laboratorio</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#acerca" class="icon-item">
+                            <i class="fas fa-info-circle"></i>
+                            <span class="icon-text">Acerca de nosotros</span>
+                        </a>
+                    </li>
+    
+                </ul>
+    
+            </nav>
+        </header>
+        <!--Comandos para crear una barra de busqueda-->
+        <nav>
+            
+            <div class="buscador-container">
+              <form action="https://www.google.com/search" method="get">
+                <div class="buscador-container">
+                    <input type="text" name="q" placeholder="Buscar en Google" required>
+                    <button type="submit" class="button">
+                        <i class="fas fa-search"></i>
+                        <span class="button-text">Buscar</span>
+                    </button>
+                </div>
+            </form>     
+            </div>
+        </nav>
+        <!--Recuadro de texto bajo la barra de musica-->
+        <div class="glass">
+            <div class="glass-effect">
+              <h1>Proximamente Información de OndaXplorer</h1>
+              <p>Libros, fórmulas, redes sociales y más.</p>
+          
+              <!-- Redes sociales debajo del texto -->
+              <div class="sociales">
+                <ul class="redes">
+                  <!-- Facebook -->
+                  <li>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://misitio.com" target="_blank" class="facebook">
+                      <i class="fab fa-facebook"></i>
+                    </a>
+                  </li>
+          
+                  <!-- Instagram -->
+                  <li>
+                    <a href="https://www.instagram.com/" target="_blank" class="instagram">
+                      <i class="fab fa-instagram"></i>
+                    </a>
+                  </li>
+          
+                  <!-- Threads -->
+                  <li>
+                    <a href="https://twitter.com/" target="_blank" class="twitter">
+                        <i class="fab fa-twitter"></i> <!-- Usamos el ícono de Twitter -->
+                      </a>
+                  </li>
+          
+                  <!-- GitHub -->
+                  <li>
+                    <a href="https://github.com/tu-usuario" target="_blank" class="github">
+                      <i class="fab fa-github"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- Contenedor principal -->
+
+          
+        <!-- Tarjeta principal de inicio -->
+        <div id="main-card" class="main-card" onmouseenter="toggleCards('show')" onmouseleave="toggleCards('hide')">
+            <i class="fas fa-home"></i>
+            <p>Inicio</p>
+        </div>
+        
+        <!-- Tarjetas adicionales que se desplegarán -->
+        <div id="cards-wrapper" class="cards-wrapper">
+            <div class="card-item" id="card-temas" onclick="showContent('temas')">
+                <i class="fas fa-tag"></i>
+                <p>Temas</p>
+            </div>
+            <div class="card-item" id="card-ejercicios" onclick="showContent('ejercicios')">
+                <i class="fas fa-clipboard-list"></i>
+                <p>Tests</p>
+            </div>
+            <div class="card-item" id="card-laboratorio" onclick="showContent('laboratorio')">
+                <i class="fas fa-flask"></i>
+                <p>LAB</p>
+            </div>
+            <div class="card-item" id="card-mas-info" onclick="showContent('mas-info')">
+                <i class="fas fa-info-circle"></i>
+                <p>Info</p>
+            </div>
+        </div>
+        
+        <!-- Contenido adicional para cada tarjeta -->
+<div id="content" class="content">
+    <div id="content-temas" class="content-card">
+        <ul>
+            <li>Movimiento armonico simple (MAS)</li>
+            <li>Ondas</li>
+            <li>Reflexion y espejos</li>
+        </ul>
+    </div>
+    <div id="content-ejercicios" class="content-card">Contenido de Ejercicios</div>
+    <div id="content-laboratorio" class="content-card">Contenido de Laboratorio</div>
+    <div id="content-mas-info" class="content-card">Contenido de Más Información</div>
+</div>
+
+    </div>
+
+
+          
+
+    <script src="codigo.js"></script>
+</body>
+</html>
